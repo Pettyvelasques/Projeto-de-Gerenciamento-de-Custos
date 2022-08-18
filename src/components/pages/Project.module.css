@@ -1,0 +1,87 @@
+.project_details{
+    padding: 1em;
+}
+
+.project_details h1,
+.project_details h2, 
+.project_details p {
+    margin-bottom: 0.5em;
+}
+
+
+.project_details h1{
+    background-color: #222;
+    color: #fb3;
+    padding: 0.4em;
+}
+
+.project_details span{
+    font-weight: bold;
+}
+
+.details_container, 
+.service_form_container {
+    border-bottom: 1px solid #7a7a7a;
+    padding-bottom: 1.2em;
+    margin: 0 2em 2em 2em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background-color: #222;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    transition: 0.5s;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+    max-height: 40px;
+  }
+  
+  .btn:hover {
+    color: #ffbb33;
+  }
+  
+.project_info {
+    width: 100%;
+  }
+
+p{
+    color: brown;
+}
+
+
+.category_text {
+    display: flex;
+    align-items: center;
+}
+
+.category_text .infra, 
+.category_text .desenvolvimento, 
+.category_text .design, 
+.category_text .planejamento {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px 0 5px;
+}
+
+.category_text .infra {
+    background-color: #ffaebc;
+}
+
+.category_text .desenvolvimento {
+    background-color: #a0e7e5;
+}
+
+.category_text .design {
+    background-color: #b4f8c8;
+}
+
+.category_text .planejamento {
+    background-color: #fbe7c6;
+}
