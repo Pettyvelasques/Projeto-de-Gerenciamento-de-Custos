@@ -1,4 +1,4 @@
-import { parse, v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -46,7 +46,6 @@ function Project() {
     function editPost(project) {
         setMessage('')
 
-        // budget validation
         if (project.budget < project.cost) {
             // mensagem
             setMessage('O orçamento não pode ser menor que o custo do projeto!')
@@ -76,7 +75,6 @@ function Project() {
     function createService(project) {
         setMessage('')
 
-        //last service
         const lastService = project.services[project.services.length - 1]
         lastService.id = uuidv4()
 
@@ -84,7 +82,6 @@ function Project() {
 
         const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
 
-        //maximum value validation
         if (newCost > parseFloat(project.budget)) {
             setMessage('Orçamento ultrapassado, verifique o valor do serviço')
             setType('error')
@@ -92,7 +89,6 @@ function Project() {
             return false
         }
 
-        // add service cost to project total cost
         project.cost = newCost
 
         // update project
@@ -105,7 +101,6 @@ function Project() {
         })
             .then((resp) => resp.json())
             .then((data) => {
-                //exibir os serviços
                 setShowServiceForm(false)
                 setMessage('Serviço criado com sucesso!')
                 setType('success')
@@ -113,8 +108,32 @@ function Project() {
             .catch((err) => console.log(err))
     }
 
-    function removeService() {
+    function removeService(id, cost) {
+        setMessage('')
 
+        const servicesUpdated = project.services.filter(
+            (service) => service.id !== id,
+        )
+
+        const projectUpdated = project
+
+        projectUpdated.services = servicesUpdated
+        projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
+
+        fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(projectUpdated),
+        })
+            .then((resp) => resp.json())
+            .then((data) => {
+                setProject(projectUpdated)
+                setServices(servicesUpdated)
+                setMessage('Serviço removido com sucesso!')
+                setType('success')
+            })
     }
 
     function toggleProjectForm() {
