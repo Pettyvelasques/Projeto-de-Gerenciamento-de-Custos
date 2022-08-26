@@ -137,11 +137,23 @@ function Project() {
     }
 
     function toggleProjectForm() {
+        if (!showServiceForm) {
+            return setShowProjectForm(!showProjectForm)
+        }
+
         setShowProjectForm(!showProjectForm)
+        setShowServiceForm(showProjectForm)
+
     }
 
     function toggleServiceForm() {
+        if (!showProjectForm) {
+            return setShowServiceForm(!showServiceForm)
+        }
+
         setShowServiceForm(!showServiceForm)
+        setShowProjectForm(showServiceForm)
+
     }
 
     return (
