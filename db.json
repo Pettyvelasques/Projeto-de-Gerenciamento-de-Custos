@@ -18,8 +18,45 @@
         "id": "3",
         "name": "Design"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 1656,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "125",
+          "description": "teste",
+          "id": "ee20407e-48ff-4f6c-96a3-c15f41bfe906"
+        },
+        {
+          "name": "teste 2",
+          "cost": "125",
+          "description": "teste",
+          "id": "46357734-2dfc-4637-adec-4d080c1aa041"
+        },
+        {
+          "name": "teste 3",
+          "cost": "150",
+          "description": "teste",
+          "id": "bdddf3db-915e-4292-87a8-32dd74301efa"
+        },
+        {
+          "name": "teste x",
+          "cost": "1233",
+          "description": "teste x",
+          "id": "74723f39-2da2-4c04-8205-34776dfeb245"
+        },
+        {
+          "name": "etste",
+          "cost": "1",
+          "description": "test",
+          "id": "dff303e5-c044-492c-be70-1a14e679a5f4"
+        },
+        {
+          "name": "teste",
+          "cost": "22",
+          "description": "teste",
+          "id": "fab59601-5209-4444-9ebc-7e06ec0b47c3"
+        }
+      ],
       "id": 2
     }
   ],
